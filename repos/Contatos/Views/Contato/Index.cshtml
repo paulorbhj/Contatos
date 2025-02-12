@@ -1,0 +1,88 @@
+﻿@*@model List<Contato>*@
+@model X.PagedList.IPagedList<Contato>
+@using X.PagedList.Mvc.Core;
+
+
+@{
+    ViewData["Title"] = "Pagina Inicial";
+}
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-success btn-lg float-lg-right btn-sm close-paulo" aria-label="close">x</button>
+        @TempData["MensagemSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-lg float-lg-right btn-sm close-paulo" aria-label="close">x</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+<div class="text-center">
+    <h4 class="display-4">Lista de Contatos</h4>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-info" role="button" asp-area="" asp-controller="Contato" asp-action="Adicionar">Adicionar contato</a>
+    </div>
+    <br />
+    <table id="tableContatos" class="table table-success table-striped">
+        <thead>
+            <tr>
+                @*<th scope="col"> ID</th>*@
+                <th scope="col"> Nome</th>
+                @*<th scope="col"> Senha</th>*@
+                <th scope="col">Endereço</th>
+                <th scope="col">E-mail</th>
+                @*<th scope="col">Nome da Mãe</th>*@
+                @*<th scope="col">Nome do pai</th>*@
+                <th scope="col">Estado</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Município</th>
+                <th scope="col">CPF</th>
+                <th scope="col">RG</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (Contato contato in Model)
+                {
+                    <tr>
+                        @*<th scope="row">@contato.Id</th>*@
+                        <td>@contato.NomeCompleto</td>
+                        @*<td>@contato.Senha</td>*@
+                        <td>@contato.Endereco</td>
+                        <td>@contato.Email</td>
+                        @*<td>@contato.NomeMae</td>*@
+                        @*<td>@contato.NomePai</td>*@
+                        <td>@contato.Estado</td>
+                        <td>@contato.Cidade</td>
+                        <td>@contato.Municipio</td>
+                        <td>@contato.CPF</td>
+                        <td>@contato.RG</td>
+                        @*Falta arrumar essa index*@
+                        <td>
+                            <div>
+                                <a class="btn btn-primary" role="button" asp-route-id="@contato.Id" asp-area="" asp-controller="Contato" asp-action="Editar">Editar</a>
+                                <a class="btn btn-secondary" role="button" asp-route-id="@contato.Id" asp-area="" asp-controller="Contato" asp-action="Detalhe">Detalhar</a>
+                                <a class="btn btn-danger" role="button" asp-route-id="@contato.Id" asp-area="" asp-controller="Contato" asp-action="Delete">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <span class=" btn btn-paulo1"> @Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina })) </span>
+    
+</div>
+
+
+
+
+
+
+

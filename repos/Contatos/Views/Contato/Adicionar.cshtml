@@ -1,0 +1,81 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Contato
+
+
+
+<h5>PAGINA ADICIONAR</h5>
+<form class="row g-3" asp-controller="Contato" asp-action="Adicionar" method="post">
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input type="email" asp-for="Email" class="form-control" id="inputEmail4">
+        @Html.ValidationMessageFor(X => X.Email)
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Senha</label>
+        <input type="password" asp-for="Senha" class="form-control" id="inputPassword4">
+        @Html.ValidationMessageFor(X => X.Senha)
+    </div>
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">Endereço</label>
+        <input type="text" asp-for="Endereco" class="form-control" id="inputAddress">
+        @Html.ValidationMessageFor(X => X.Endereco)
+        @*<input type="text" class="form-control" id="inputAddress" placeholder="Rua">*@
+    </div>
+    <div class="col-12">
+        <label for="inputNome" class="form-label">Nome Completo</label>
+        <input type="text" asp-for="NomeCompleto" class="form-control" id="inputNome">
+        @Html.ValidationMessageFor(X => X.NomeCompleto)
+        @*<input type="text" class="form-control" id="inputNome" placeholder="Nome">*@
+    </div>
+    <div class="col-12">
+        <label for="inputNomeMae" class="form-label">Nome Mãe</label>
+        <input type="text" asp-for="NomeMae" class="form-control" id="inputNomeMae">
+        @Html.ValidationMessageFor(X => X.NomeMae)
+    </div>
+    <div class="col-12">
+        <label for="inputNomePai" class="form-label">Nome Pai</label>
+        <input type="text" asp-for="NomePai" class="form-control" id="inputNomePai">
+        @Html.ValidationMessageFor(X => X.NomePai)
+    </div>
+    <div class="col-md-6">
+        <label for="inputCity" class="form-label">Cidade</label>
+        <input type="text" asp-for="Cidade" class="form-control" id="inputCity">
+        @Html.ValidationMessageFor(X => X.Cidade)
+    </div>
+    <div class="col-md-3 position-relative">
+        <label for="validationTooltip04" class="form-label">Estado</label>
+        <select class="form-select" id="validationTooltip04" asp-for="Estado" required>
+            @Html.ValidationMessageFor(X => X.Estado)
+            <option selected disabled value="">Escolher...</option>
+            <option>Teste 1</option>
+            <option>Teste2</option>
+        </select>
+        <div class="invalid-tooltip">
+            Please select a valid state.
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <label for="inputZip" class="form-label">Município</label>
+        <input type="text" asp-for="Municipio" class="form-control" id="inputZip">
+        @Html.ValidationMessageFor(X => X.Municipio)
+    </div>
+    <div class="col-md-4">
+        <label for="inputCPF" class="form-label">CPF</label>
+        <input type="text" asp-for="CPF" class="form-control" id="inputCPF">
+        @Html.ValidationMessageFor(X => X.CPF)
+    </div>
+    <div class="col-md-4">
+        <label for="inputRG" class="form-label">RG</label>
+        <input type="text" asp-for="RG" class="form-control" id="inputRG">
+        @Html.ValidationMessageFor(X => X.RG)
+    </div>
+
+    <div class="col-12">
+        <br />
+        <button type="submit" class="btn btn-success"> <i class="fa-solid fa-floppy-disk"></i> Salvar </button> |
+        <a class="btn btn-paulo" role="button" asp-area="" asp-controller="Contato" asp-action="Index">Voltar</a>
+    </div>
+</form>

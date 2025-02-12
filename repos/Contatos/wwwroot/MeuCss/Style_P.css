@@ -1,0 +1,24 @@
+﻿body {
+}
+.btn-paulo {
+    color: #fff;
+    background-color: #556B2F;
+    border-color: #0d6efd;
+}
+
+.close-paulo{
+    position:absolute;
+    right:-10px;
+    top:-15px;
+    border-radius:15px;
+    width:30px;
+    height:30px;
+}
+.btn-paulo1 {
+    color: #0d6efd;
+    background-color: #7FFFD4;
+    border-color: #000000;
+}
+
+
+
